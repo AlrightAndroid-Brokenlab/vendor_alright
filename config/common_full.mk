@@ -16,3 +16,7 @@ PRODUCT_PACKAGES += \
 # Recorder
 PRODUCT_PACKAGES += \
     Recorder
+
+# MotoWidget
+PRODUCT_PACKAGES += \
+    MotoWidget
