@@ -6,8 +6,8 @@ ADDITIONAL_BUILD_PROPERTIES += \
 endif
 
 # RR System Version
-PRODUCT_VERSION = OCT22
-RR_VERSION := RR-Rev-Q-$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(RR_BUILD)
+PRODUCT_VERSION = 0.1
+RR_VERSION := AlrightOS-Q-$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(RR_BUILD)
 RR_BUILDTYPE = UNOFFICIAL
 
 # RR System Version
