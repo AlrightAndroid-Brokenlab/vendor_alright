@@ -27,4 +27,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
    ro.aos.maintainer=$(ALRIGHT_MAINTAINER)
 else
 $(warning "AlrightAndroid: No maintainer name detected, building as unofficial build.")
+   ALRIGHT_MAINTAINER := Unofficial Maintainer? We cannot recognize the maintainer
+   ro.aos.maintainer=$(ALRIGHT_MAINTAINER)
 endif
