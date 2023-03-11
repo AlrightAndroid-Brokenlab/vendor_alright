@@ -6,16 +6,15 @@ ADDITIONAL_BUILD_PROPERTIES += \
 endif
 
 # AlrightOS System Version
-PRODUCT_VERSION = 0.2
+PRODUCT_VERSION = 0.3
 RR_VERSION := AlrightOS-Brokenlab-Q-$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(RR_BUILD)
-#
-#RR_BUILDTYPE = UNOFFICIAL
-# if you wanna use that, use export RR_BUILDTYPE=OFFICAL
+
+RR_BUILDTYPE = UNOFFICIAL
 
 # RR System Version
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.rr.version=$(RR_VERSION) \
-    ro.rr.releasetype=$(RR_BUILDTYPE || UNOFFICIAL) \
+    ro.rr.releasetype=$(RR_BUILDTYPE) \
     ro.rr.build.version=$(PRODUCT_VERSION) \
     ro.modversion=$(RR_VERSION) \
     ro.lineagelegal.url=https://lineageos.org/legal \
