@@ -110,6 +110,10 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 PRODUCT_PACKAGES += \
     Terminal
 
+# MotoWidget
+PRODUCT_PACKAGES += \
+    MotoWidget
+
 PRODUCT_PACKAGES += \
     LineageParts \
     LineageSettingsProvider \
