@@ -1,4 +1,5 @@
 
+
 # Build fingerprint
 ifneq ($(BUILD_FINGERPRINT),)
 ADDITIONAL_BUILD_PROPERTIES += \
