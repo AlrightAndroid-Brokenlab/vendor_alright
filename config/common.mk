@@ -1,6 +1,6 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/rr/config/rr.mk)
+$(call inherit-product-if-exists, vendor/alright/config/rr.mk)
 
 PRODUCT_BRAND ?= ResurrectionRemix
 
@@ -24,15 +24,15 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/rr/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/rr/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/rr/prebuilt/common/bin/50-lineage.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lineage.sh
+    vendor/alright/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/alright/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/alright/prebuilt/common/bin/50-lineage.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lineage.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/rr/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/rr/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/rr/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/alright/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/alright/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/alright/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.ota.allow_downgrade=true
@@ -41,23 +41,23 @@ endif
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/rr/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
+    vendor/alright/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
 # Lineage-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/rr/config/permissions/lineage-sysconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lineage-sysconfig.xml
+    vendor/alright/config/permissions/lineage-sysconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lineage-sysconfig.xml
 
 # Copy all Lineage-specific init rc files
-$(foreach f,$(wildcard vendor/rr/prebuilt/common/etc/init/*.rc),\
+$(foreach f,$(wildcard vendor/alright/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/rr/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
+    vendor/alright/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
-    vendor/rr/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+    vendor/alright/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -69,29 +69,29 @@ PRODUCT_COPY_FILES += \
 
 # This is Lineage!
 PRODUCT_COPY_FILES += \
-    vendor/rr/config/permissions/privapp-permissions-rr-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-rr.xml \
-    vendor/rr/config/permissions/privapp-permissions-rr-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-rr.xml \
-    vendor/rr/config/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-elgoog.xml \
-    vendor/rr/config/permissions/org.lineageos.android.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/org.lineageos.android.xml
+    vendor/alright/config/permissions/privapp-permissions-rr-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-rr.xml \
+    vendor/alright/config/permissions/privapp-permissions-rr-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-rr.xml \
+    vendor/alright/config/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-elgoog.xml \
+    vendor/alright/config/permissions/org.lineageos.android.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/org.lineageos.android.xml
 
 # Hidden API whitelist
 PRODUCT_COPY_FILES += \
-    vendor/rr/config/permissions/rr-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/rr-hiddenapi-package-whitelist.xml
+    vendor/alright/config/permissions/rr-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/rr-hiddenapi-package-whitelist.xml
 
 # Include AOSP audio files
-include vendor/rr/config/aosp_audio.mk
+include vendor/alright/config/aosp_audio.mk
 
 # Include Lineage audio files
-include vendor/rr/config/lineage_audio.mk
+include vendor/alright/config/lineage_audio.mk
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
-include vendor/rr/config/lineage_sdk_common.mk
+include vendor/alright/config/lineage_sdk_common.mk
 endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/rr/config/twrp.mk
+include vendor/alright/config/twrp.mk
 endif
 
 # Do not include art debug targets
@@ -191,11 +191,11 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     TrebuchetQuickStep
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/rr/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/rr/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/alright/overlay
+DEVICE_PACKAGE_OVERLAYS += vendor/alright/overlay/common
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/rr/build/target/product/security/rr
+    vendor/alright/build/target/product/security/rr
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/rr/config/partner_gms.mk
+-include vendor/alright/config/partner_gms.mk

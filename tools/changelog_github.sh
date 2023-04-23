@@ -45,7 +45,7 @@ else
 	echo ${cya}" ▼ Generating (for last $days_to_log days) github format changelog.."${txtrst}
 
 	echo >> $Changelog;
-	echo "$source_name Version $(grep PRODUCT_VERSION vendor/rr/build/core/main_version.mk | head -1 | cut -d= -f2 | cut -d' ' -f2) Changelog" >> $Changelog;
+	echo "$source_name Version $(grep PRODUCT_VERSION vendor/alright/build/core/main_version.mk | head -1 | cut -d= -f2 | cut -d' ' -f2) Changelog" >> $Changelog;
 	echo '===============' >> $Changelog;
 	echo >> $Changelog;
 

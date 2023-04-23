@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
     Updater
 
 # Bootanimation
-PRODUCT_COPY_FILES += vendor/rr/prebuilt/common/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/alright/prebuilt/common/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
@@ -85,7 +85,7 @@ PRODUCT_COPY_FILES += \
 
 # Copy features.txt from the path
 PRODUCT_COPY_FILES += \
-vendor/rr/Features.mkdn:system/etc/RR/Features.txt
+vendor/alright/Features.mkdn:system/etc/RR/Features.txt
 
 # Plugins
 include packages/apps/Plugins/plugins.mk
@@ -218,7 +218,7 @@ PRODUCT_PACKAGES += \
     SystemCharcoalBlack
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/rr/prebuilt/system/fonts,$(TARGET_COPY_OUT_SYSTEM)/fonts)
+    $(call find-copy-subdir-files,*,vendor/alright/prebuilt/system/fonts,$(TARGET_COPY_OUT_SYSTEM)/fonts)
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED := false

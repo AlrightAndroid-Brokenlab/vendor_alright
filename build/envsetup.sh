@@ -83,7 +83,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch rr_$target-$variant
+            lunch alright_$target-$variant
         fi
     fi
     return $?
@@ -921,7 +921,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/rr/build/tools/repopick.py $@
+    $T/vendor/alright/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {

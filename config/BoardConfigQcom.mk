@@ -1,4 +1,4 @@
-include vendor/rr/config/BoardConfigQcomDefs.mk
+include vendor/alright/config/BoardConfigQcomDefs.mk
 
 BOARD_USES_ADRENO := true
 
