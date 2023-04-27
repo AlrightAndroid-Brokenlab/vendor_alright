@@ -8,9 +8,8 @@ endif
 
 # AlrightOS System Version
 PRODUCT_VERSION = 0.4
-RR_VERSION := AlrightOS-Brokenlab-Q-$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(RR_BUILD)
-
 RR_BUILDTYPE = UNOFFICIAL
+RR_VERSION := AlrightOS-Brokenlab-Q-$(RR_BUILDTYPE)-$(PRODUCT_VERSION)-$(shell date +%Y%m%d)-$(RR_BUILD)
 
 # RR System Version
 ADDITIONAL_BUILD_PROPERTIES += \
