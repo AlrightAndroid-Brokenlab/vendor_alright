@@ -84,6 +84,9 @@ include vendor/alright/config/aosp_audio.mk
 # Include Lineage audio files
 include vendor/alright/config/lineage_audio.mk
 
+# Include some extraversion
+include vendor/rr/config/extraversion.mk
+
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
 include vendor/alright/config/lineage_sdk_common.mk
